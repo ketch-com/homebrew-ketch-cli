@@ -1,33 +1,33 @@
 class Ketch < Formula
   desc "Ketch CLI utility"
-  homepage "https://ketch.com"
-  version "0.0.0"
+  homepage "https://ketch.sh"
+  version "0.3.2"
   bottle :unneeded
 
   if OS.mac?
-    url "https://github.com/ketch/ketch-cli/releases/download/v0.0.0/ketch_0.0.0_mac-os_x86_64.tar.gz"
-    sha256 "726d5aaa0fe45c8dd8481ad0fff4c8317c03b78ddffa9c1f8e0caa7b17e74bc9"
+    url "https://github.com/ketch-com/ketch-cli/releases/download/v0.3.2/darwin-amd64.tgz"
+    sha256 "ad365e5d83fc4fa7f53ccd45d025d26db3f5a552213f7ed0b257ffde974f182c"
   elsif OS.linux?
     if Hardware::CPU.intel?
-      url "https://github.com/ketch/ketch-cli/releases/download/v0.0.0/ketch_0.0.0_linux_x86_64.tar.gz"
-      sha256 "b54d581584e6d7c328663052f40dcd2a991fdb35d3c397a40f59e78f4edd70e2"
+      url "https://github.com/ketch-com/ketch-cli/releases/download/v0.3.2/linux-amd64.tgz"
+      sha256 "7208ec77456b0db3c0e8bccaff40f4e68c8784c469920a17737b38725bd7f55b"
     end
   end
 
   def install
     bin.install "ketch"
-    rm Dir["#{bin}/{ketch-completion.bash,ketch-completion.zsh}"]
-    system bin/"ketch", "completion", "--shell", "bash"
-    system bin/"ketch", "completion", "--shell", "zsh"
-    bash_completion.install "ketch-completion.bash"
-    zsh_completion.install "ketch-completion.zsh"
-    (zsh_completion/"_ketch").write <<~EOS
-      #compdef ketch
-      _ketch () {
-        local e
-        e=$(dirname ${funcsourcetrace[1]%:*})/ketch-completion.zsh
-        if [[ -f $e ]]; then source $e; fi
-      }
-    EOS
+    #rm Dir["#{bin}/{ketch-completion.bash,ketch-completion.zsh}"]
+    #system bin/"ketch", "completion", "--shell", "bash"
+    #system bin/"ketch", "completion", "--shell", "zsh"
+    #bash_completion.install "ketch-completion.bash"
+    #zsh_completion.install "ketch-completion.zsh"
+    #(zsh_completion/"_ketch").write <<~EOS
+    #  #compdef ketch
+    #  _ketch () {
+    #    local e
+    #    e=$(dirname ${funcsourcetrace[1]%:*})/ketch-completion.zsh
+    #    if [[ -f $e ]]; then source $e; fi
+    #  }
+    #EOS
   end
 end
