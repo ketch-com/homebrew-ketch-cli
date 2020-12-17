@@ -1,16 +1,17 @@
 class Ketch < Formula
   desc "Ketch CLI utility"
   homepage "https://ketch.sh"
-  version "0.3.2"
+  version "0.4.0"
   bottle :unneeded
 
+
   if OS.mac?
-    url "https://github.com/ketch-com/ketch-cli/releases/download/v0.3.2/darwin-amd64.tgz"
-    sha256 "ad365e5d83fc4fa7f53ccd45d025d26db3f5a552213f7ed0b257ffde974f182c"
+    url "https://github.com/ketch-com/ketch-cli/releases/download/v0.4.0/darwin-amd64.tgz"
+    sha256 "4565de13d85088e4f41168b388cc8cc06aedd5e4c6d76ee0db15f994d44a977c"
   elsif OS.linux?
     if Hardware::CPU.intel?
-      url "https://github.com/ketch-com/ketch-cli/releases/download/v0.3.2/linux-amd64.tgz"
-      sha256 "7208ec77456b0db3c0e8bccaff40f4e68c8784c469920a17737b38725bd7f55b"
+      url "https://github.com/ketch-com/ketch-cli/releases/download/v0.4.0/linux-amd64.tgz"
+      sha256 "946da68ff2522302c64e3375d256326943e8bd9c4b64c2a4abc2d9fb64a084e9"
     end
   end
 
